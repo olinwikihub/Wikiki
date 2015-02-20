@@ -1,4 +1,4 @@
-module.exports.home = function (req, res) {
-	var pageData = {};
-	res.render('index', pageData);
+
+exports.index = function(req, res){
+  res.render('index', { name: 'John' });
 };

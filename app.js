@@ -13,11 +13,18 @@ var base = require('./routes/base');
 
 // Config
 var app = express();
+
 var mongoURI = process.env.MONGOURI || "mongodb://localhost/test";
 var PORT = process.env.PORT || 3000;
 mongoose.connect(mongoURI);
 
 app.set('views', __dirname + '/views');
+
+var options = { jsx: { harmony: true , beautify: true} };
+
+app.set('view engine', 'jsx');
+app.engine('jsx', require('express-react-views').createEngine());
+
 app.use(session({
     secret: 'secret',
     resave: false,
@@ -32,7 +39,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 // Routing Table
-app.get('/', base.home);
+app.get('/', base.index);
 
 // Listen
 app.listen(PORT);
