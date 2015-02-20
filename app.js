@@ -6,7 +6,7 @@ var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var hbs = require('express-handlebars');
+
 
 // Route Imports
 var base = require('./routes/base');
@@ -18,18 +18,11 @@ var PORT = process.env.PORT || 3000;
 mongoose.connect(mongoURI);
 
 app.set('views', __dirname + '/views');
-app.set('view engine', 'handlebars');
 app.use(session({
     secret: 'secret',
     resave: false,
     saveUninitialized: true
 }));
-app.engine('handlebars', hbs(
-    {
-        defaultLayout: 'base',
-        partialsDir: __dirname + '/views/partials',
-        layoutsDir: __dirname + '/views/layouts'
-    }));
 
 // Middleware
 app.use(logger('dev'));
