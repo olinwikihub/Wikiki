@@ -39,7 +39,16 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 // Routing Table
+
+//GET
+
 app.get('/', base.index);
+app.get('/allRepos', base.allRepos);
+
+// POSTS
+//FIXME for testing
+app.get('/addRepo', base.addRepo);
+
 
 // Listen
 app.listen(PORT);
