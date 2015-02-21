@@ -6,30 +6,30 @@ var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var hbs = require('express-handlebars');
+React = require('react');
 
 // Route Imports
 var base = require('./routes/base');
 
 // Config
 var app = express();
+
 var mongoURI = process.env.MONGOURI || "mongodb://localhost/test";
 var PORT = process.env.PORT || 3000;
 mongoose.connect(mongoURI);
 
 app.set('views', __dirname + '/views');
-app.set('view engine', 'handlebars');
+
+var options = { jsx: { harmony: true , beautify: true} };
+
+app.set('view engine', 'jsx');
+app.engine('jsx', require('express-react-views').createEngine());
+
 app.use(session({
     secret: 'secret',
     resave: false,
     saveUninitialized: true
 }));
-app.engine('handlebars', hbs(
-    {
-        defaultLayout: 'base',
-        partialsDir: __dirname + '/views/partials',
-        layoutsDir: __dirname + '/views/layouts'
-    }));
 
 // Middleware
 app.use(logger('dev'));
@@ -39,7 +39,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 // Routing Table
-app.get('/', base.home);
+app.get('/', base.index);
 
 // Listen
 app.listen(PORT);
