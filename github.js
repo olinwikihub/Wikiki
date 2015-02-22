@@ -1,11 +1,11 @@
 var request = require('request');
 var https = require('https');
 
-request.debug = true;
+// request.debug = true;
 
 var API = "https://api.github.com/";
 
-exports.validateREPO = function (user, repo, callback) {
+exports.validateREPO = function(user, repo, callback) {
     request
         .get(API + "repos/" + user + "/" + repo, {
             headers: {
@@ -18,9 +18,8 @@ exports.validateREPO = function (user, repo, callback) {
                     err: "Cannot find Github Repo"
                 });
             }
-
             console.log(response.body); // 200
-
+            callback(null, true);
         }).on('error', function(err) {
             callback(err);
         });
