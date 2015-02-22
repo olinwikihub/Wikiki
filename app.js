@@ -47,7 +47,7 @@ app.get('/allRepos', base.allRepos);
 
 // POSTS
 //FIXME for testing
-app.get('/addRepo', base.addRepo);
+app.post('/addRepo', base.addRepo);
 
 
 // Listen

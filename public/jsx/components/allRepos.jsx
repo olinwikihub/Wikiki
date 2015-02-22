@@ -17,12 +17,26 @@ var RepoListBox = React.createClass({
 var AddRepoForm = React.createClass({
   handleSubmit: function (e) {
     e.preventDefault();
-    alert();
+
+    var input = $('input#githuburl').val();
+
+    server.POST('/addRepo', {url: input}, function (data) {
+      console.log(data.error);
+      if (data.error) {
+        alert("Make sure URL is an existing Github HTTPS Clone URL");
+        return;
+      }
+
+      React.render(
+        <RepoListBox />,
+        document.getElementById('container')
+      );
+    });
   },
 
   render: function () {
     return  (<form onSubmit={this.handleSubmit}>
-              <input id="githuburl" type="text" placeholder="Github Url"></input>
+              <input id="githuburl" type="text" placeholder="HTTPS clone URL"></input>
               <input type="submit" value="Add"></input>
             </form>);
   }
