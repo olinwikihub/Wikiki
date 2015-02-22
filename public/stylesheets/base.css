@@ -1,0 +1,23 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800);
+
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.repo {
+    list-style: none;
+}
+
+.repo > p {
+    padding: 20px 0px 0px 0px;
+}
+
+.repo > p:hover {
+    color: purple;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#container {
+    margin: 100px
+}

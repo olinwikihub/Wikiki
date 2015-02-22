@@ -1,8 +1,11 @@
 var React = window.React;
 
 React.render(
-  <CommentBox />,
-  document.getElementById('container')
+  <Navbar />,
+  document.getElementById('navbar')
 );
 
-
+React.render(
+  <RepoListBox />,
+  document.getElementById('container')
+);
