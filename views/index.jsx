@@ -18,6 +18,7 @@ var MainLayout = React.createClass({render: function() {return (
 <script type="text/javascript" src="/javascripts/server.js"></script>
 <script type="text/jsx" src="/jsx/components/NavBar.jsx"></script>
 <script type="text/jsx" src="/jsx/components/RepoListPage.jsx"></script>
+<script type="text/jsx" src="/jsx/components/RepoPage.jsx"></script>
 <script type="text/jsx" src="/jsx/index.jsx"></script>
 
 </html>
