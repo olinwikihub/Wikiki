@@ -4,6 +4,11 @@
     font-family: 'Open Sans', sans-serif;
 }
 
+#container {
+    margin: 100px
+}
+
+/* List of Repo Page CSS*/
 .repo {
     list-style: none;
 }
@@ -16,8 +21,4 @@
     color: purple;
     font-weight: bold;
     cursor: pointer;
-}
-
-#container {
-    margin: 100px
 }
