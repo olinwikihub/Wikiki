@@ -60,7 +60,7 @@ var ReposList = React.createClass({
 var Repo = React.createClass({
   OnClick: function () {
     React.render(
-      <RepoPage owner={this.props.owner} name={this.props.name}>,
+      <RepoPage owner={this.props.owner} name={this.props.name} />,
       document.getElementById('container'));
       return true;
   },
