@@ -40,8 +40,8 @@ exports.addRepo = function(req, res) {
     }
 
     // Validate Github API
-    github.validateREPO(parts[1], parts[2], function (err, response, body) {
-        if (err) {
+    github.validateREPO(parts[1], parts[2], function (err, response, body) {        
+        if (err || response.statusCode/10 !== 20) {
             error(res, err, "Invalid Github Url");
             return;
         }

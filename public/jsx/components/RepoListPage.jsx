@@ -21,16 +21,13 @@ var AddRepoForm = React.createClass({
     var input = $('input#githuburl').val();
 
     server.POST('/addRepo', {url: input}, function (data) {
-      console.log(data.error);
-      if (data.error) {
-        alert("Make sure URL is an existing Github HTTPS Clone URL");
-        return;
-      }
       // Repopulate Repos
       React.render(
         <RepoListBox />,
         document.getElementById('container')
       );
+    }, function (err, status) {
+      alert("Make sure URL is an existing Github HTTPS Clone URL");
     });
   },
 
