@@ -1,6 +1,6 @@
 var RepoListBox = React.createClass({
   render: function() {
-    server.GET('/allRepos', function (data) {
+    server.GET('/allRepos', null, function (data) {
       React.render(
           <div>
             <AddRepoForm />

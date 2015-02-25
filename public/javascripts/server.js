@@ -1,6 +1,6 @@
 var server = {
-    GET : function(url, callback) {
-        $.get(url).done(function(data) {
+    GET : function(url, data, callback) {
+        $.get(url, data).done(function(data) {
             callback(data);
         }).error(this.errorHandler);
     },

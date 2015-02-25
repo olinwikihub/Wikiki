@@ -11,6 +11,7 @@ var RepoPage = React.createClass({
 
 var RepoContent = React.createClass({
     render: function () {
+        server.POST()
         return <div>"hello"</div>
     }
 });
